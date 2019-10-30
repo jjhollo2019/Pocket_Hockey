@@ -18,7 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.pockethockey.HowToPlay" />
+        <activity android:name="com.example.pockethockey.Game" />
+        <activity
+            android:name="com.example.pockethockey.HowToPlay"
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name="com.example.pockethockey.MainActivity"
             android:screenOrientation="sensorLandscape" >
