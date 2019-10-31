@@ -1,11 +1,3 @@
 <resources>
     <string name="app_name">Pocket Hockey</string>
-    <string name="HowToTitle">How To Play</string>
-    <string name="Instruction1">While holding the phone in landscape mode tilt the phone left and right to move the character left and right</string>
-    <string name="Instruction2">To make a wrist shot use your finger to swipe up on the screen</string>
-    <string name="Instruction3">To make a slap shot use your finger to swipe down and then up on the screen</string>
-    <string name="Instruction4">The character will move forward at a rate determined by the level difficulty</string>
-    <string name="Instruction5">These are the zones where a bonus modifier is added to a slap shot</string>
-    <string name="newGame">New Game</string>
-    <string name="goBack">Go Back</string>
 </resources>
