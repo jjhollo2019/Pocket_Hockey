@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".HowToPlay">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="400dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/HowToTitle"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/instruction1"
+        android:layout_width="452dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Instruction1"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/instruction2"
+        android:layout_width="452dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Instruction2"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction1" />
+
+    <TextView
+        android:id="@+id/instruction3"
+        android:layout_width="452dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Instruction3"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction2" />
+
+    <ImageView
+        android:id="@+id/backButtonHTP"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="75dp"
+        android:contentDescription="@string/goBack"
+        android:tint="@color/colorAccentLight"
+        app:layout_constraintEnd_toStartOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <Button
+        android:id="@+id/newGameHTP"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/colorAccentLight"
+        android:text="@string/newGame"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/instruction4"
+        android:layout_width="452dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Instruction4"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction3" />
+
+    <TextView
+        android:id="@+id/instruction5"
+        android:layout_width="452dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="113dp"
+        android:text="@string/Instruction5"
+        android:textColor="@color/colorAccentLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
