@@ -40,21 +40,29 @@
         android:id="@+id/howToPlayTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="182dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/chop"
         android:text="@string/HowToTitle"
         android:textColor="@color/colorAccentLight"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="423dp"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/leaderTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="182dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/chop"
         android:text="@string/leader"
         android:textColor="@color/colorAccentLight"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

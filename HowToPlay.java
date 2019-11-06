@@ -21,6 +21,10 @@ public class HowToPlay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_to_play);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
         ImageView imageView = findViewById(R.id.backButtonHTP);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
