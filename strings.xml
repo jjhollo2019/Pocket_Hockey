@@ -8,4 +8,10 @@
     <string name="Instruction5">These are the zones where a bonus modifier is added to a slap shot</string>
     <string name="newGame">New Game</string>
     <string name="goBack">Go Back</string>
+    <string name="leaderboardText">Leaderboard</string>
+    <string name="score">Score</string>
+    <string name="name">ABC</string>
+    <string name="rank">1.</string>
+    <string name="contentDes">Picture of a player on the leaderboard</string>
+    <string name="leader">Leaderboard</string>
 </resources>

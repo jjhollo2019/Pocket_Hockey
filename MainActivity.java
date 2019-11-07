@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         lead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), HighScoreActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
                 startActivity(intent);
             }
         });
