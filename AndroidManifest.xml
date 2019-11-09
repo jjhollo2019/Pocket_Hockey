@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pockethockey">
     <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,8 +15,11 @@
             android:name=".HighscoreActivity"
             android:screenOrientation="sensorLandscape"/>
         <activity
-            android:name=".Game"
+            android:name=".Splash"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".Game"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".HowToPlay"
             android:screenOrientation="sensorLandscape" />
