@@ -39,6 +39,8 @@ public class HowToPlay extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Game.setIsGameOverToFalse();
+
                 Intent intent = new Intent(getApplicationContext(), Game.class);
                 startActivity(intent);
             }

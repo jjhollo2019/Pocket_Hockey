@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:background="@color/colorPrimary">
+    android:background="@color/darkerBackground">
 
     <ImageView
         android:id="@+id/backButtonLead"
@@ -15,7 +15,7 @@
         android:layout_marginStart="10dp"
         android:contentDescription="@string/goBack"
         android:tint="@color/colorAccentLight"
-        android:background="@color/colorPrimary"
+        android:background="@color/darkerBackground"
         android:onClick="goBackToHome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
