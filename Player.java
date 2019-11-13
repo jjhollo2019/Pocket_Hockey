@@ -45,7 +45,7 @@ public class Player extends GameObject{
         }
         animation.update();
 
-        if(up){
+        /*if(up){
             dy = (int) (dya -= 1.1);
         } else {
             dy = (int)(dya += 1.1);
@@ -55,7 +55,7 @@ public class Player extends GameObject{
         if(dy <- 14) dy = -14;
 
         y += dy*2;
-        dy = 0;
+        dy = 0;*/
     }
 
     public void draw(Canvas canvas){

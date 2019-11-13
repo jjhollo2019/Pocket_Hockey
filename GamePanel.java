@@ -10,10 +10,12 @@ import android.view.SurfaceView;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
+    //set the screen dimensions
     public static final int WIDTH = 856;
     public static final int HEIGHT = 480;
     public static final int MOVESPEED = -5;
 
+    //local variables and class references for the game
     private Background background;
     private Player player;
     private Puck puck;
@@ -30,6 +32,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     //thread reference
     private MainThread thread;
 
+    /**
+     * This function is the contructor for the gamepanel class, which is the main driver for the game
+     * @param context = the application context
+     */
     public GamePanel(Context context){
         super(context);
         //event interceptor
@@ -42,6 +48,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         setFocusable(true);
     }
 
+    /**
+     * This function is similar to the onCreate method of most other classes, and
+     * @param surfaceHolder
+     */
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         background = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.bigrink));
@@ -63,10 +73,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         boolean retry = true;
 
-        int counter = 0;
-
         //keep trying until thread can be fully joined
-        while(retry && counter < 4){
+        while(retry){
             try{
                 thread.setRunning(false);
                 thread.join();
@@ -82,27 +90,31 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event){
         //change this logic for gyroscope
         if(event.getAction() == MotionEvent.ACTION_DOWN){
-            if(!player.getPlaying() && newGame && reset){
+            /*if(!player.getPlaying() && newGame && reset){
                 player.setPlaying(true);
                 player.setUp(true);
-            }
+            }*/
             if(player.getPlaying()){
                 if(!started)started = true;
-                reset = false;
-                player.setUp(true);
+                player.setPlaying(true);
+                //reset = false;
+               // player.setUp(true);
             }
             return true;
         }
         if(event.getAction() == MotionEvent.ACTION_UP){
-            player.setUp(false);
+            //player.setUp(false);
             return true;
         }
-
         return super.onTouchEvent(event);
     }
 
     public void update(){
-        if(player.getPlaying()) {
+        //if(player.getPlaying()){
+            background.update();
+            player.update();
+        //}
+        /*if(player.getPlaying()) {
             background.update();
             player.update();
             //puck.update();
@@ -119,7 +131,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             if(resetElapsed > 2500 && newGame) {
                 newGame();
             }
-        }
+        }*/
     }
 
     public boolean collision(GameObject obj1, GameObject obj2){
@@ -140,9 +152,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             final int savedState = canvas.save();
             canvas.scale(scaleFactorX, scaleFactorY);
             background.draw(canvas);
-            if(disappear) {
+            //if(!disappear) {
                 player.draw(canvas);
-            }
+            //}
             if(collision(goalie, puck)){
                 //add code for scoring
             }
@@ -159,7 +171,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         player.resetScore();
 
         //reset player location
-
         newGame = true;
     }
 }
