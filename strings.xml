@@ -14,4 +14,13 @@
     <string name="rank">1.</string>
     <string name="contentDes">Picture of a player on the leaderboard</string>
     <string name="leader">Leaderboard</string>
+    <string name="level">"Level    "</string>
+    <string name="readyButton">READY</string>
+
+    <!-- For the Game Over dialog box -->
+    <string name="gameOverTitle">Game Over</string>
+    <string name="playAgainDialog">New Game</string>
+    <string name="quitDialog">Quit</string>
+    <string name="leaderboardDialog">Leaderboard</string>
+    <string name="strikeText">"Strikes: "</string>
 </resources>
