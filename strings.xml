@@ -23,4 +23,10 @@
     <string name="quitDialog">Quit</string>
     <string name="leaderboardDialog">Leaderboard</string>
     <string name="strikeText">"Strikes: "</string>
+
+    <!-- For the New Highscore dialog box -->
+    <string name="winningTitle">Congrats! You got a new high score!</string>
+    <string name="submitInitials">Submit</string>
+    <string name="cancelDialog">Cancel</string>
+    <string name="initials">Initials</string>
 </resources>
