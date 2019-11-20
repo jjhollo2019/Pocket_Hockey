@@ -1,36 +1,48 @@
 package com.example.pockethockey;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Splash extends AppCompatActivity {
+    private int strikes = 0;     // 3 strikes means GAME OVER
+    private int level = 1;     // Start at Level 1
+    private int highestLevel = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        //set this to the ready screen you made
-        setContentView(R.layout.activity_how_to_play);
+        setContentView(R.layout.activity_game);
 
-        Thread myThread = new Thread(){
-            @Override
-            public void run(){
-                try{
-                    sleep(4000);
-                    Intent startgame = new Intent(getApplicationContext(), Game.class);
-                    startActivity(startgame);
-                    finish();
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        };
-        myThread.start();
+        // Hide the status bar
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
+        // Assign views to activity variables
+        TextView levelText = findViewById(R.id.levelTitle);
+        TextView strikeText = findViewById(R.id.strikeReporter);
+
+        // Grab result of level from Game.java
+        Intent fromGame = getIntent();
+        level = fromGame.getIntExtra("level", 1);
+        strikes = fromGame.getIntExtra("strikes", 0);
+        highestLevel = fromGame.getIntExtra("highestLevel", 1);
+
+        // Update to new strikes and levels
+        String s = getString(R.string.level) + level;
+        levelText.setText(s);
+        s = getString(R.string.strikeText) + strikes;
+        strikeText.setText(s);
     }
 
-
-
+    public void onReadyButtonClicked(View v){
+        Intent i = new Intent(Splash.this, Game.class);
+        i.putExtra("level", level);
+        i.putExtra("strikes", strikes);
+        i.putExtra("highestLevel", highestLevel);
+        startActivity(i);
+    }
 }
