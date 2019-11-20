@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pockethockey">
     <uses-feature android:name="android.hardware.camera" android:required="true" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,19 +12,19 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".HighscoreActivity"
-            android:screenOrientation="sensorLandscape"/>
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".Game"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HowToPlay"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Splash"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Game"
-            android:screenOrientation="landscape"/>
-        <activity
-            android:name=".HowToPlay"
-            android:screenOrientation="sensorLandscape" />
-        <activity
             android:name=".MainActivity"
-            android:screenOrientation="sensorLandscape">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
