@@ -21,9 +21,6 @@ public class Goalie extends GameObject {
         height = h;
         score = s;
 
-        speed = 4 + (int) (rand.nextDouble()*score/30);
-        if(speed > 40) speed = 40;
-
         Bitmap[] image = new Bitmap[numFrames];
         spritesheet = res;
 
@@ -37,7 +34,6 @@ public class Goalie extends GameObject {
     }
 
     public void update(){
-        x -= speed;
         animation.update();
     }
 

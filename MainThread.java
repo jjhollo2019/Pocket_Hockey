@@ -41,7 +41,7 @@ public class MainThread extends Thread {
                     gamePanel.draw(canvas);
                 }
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
             finally {
                 try{

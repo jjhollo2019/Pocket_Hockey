@@ -11,7 +11,7 @@ public class GameOver extends DialogFragment {
         void onButtonChosen(int which);
     }
 
-    private GameOver.OpenSelectedListener myListener;
+    private OpenSelectedListener myListener;
 
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {

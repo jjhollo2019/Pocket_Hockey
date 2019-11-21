@@ -32,7 +32,6 @@ public class Puck extends GameObject {
     }
 
     public void update(){
-        x += speed - 4;
         animation.update();
     }
 

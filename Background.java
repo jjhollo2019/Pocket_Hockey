@@ -8,27 +8,30 @@ public class Background {
     private Bitmap image;
     private int x;
     private int y;
-    private int dx;
 
     public Background(Bitmap res){
         image = res;
-        dx = GamePanel.MOVESPEED;
     }
 
-    public void update(){
-        x += dx;
-        if(x<-GamePanel.WIDTH){
-            x = 0;
+    public void update(float x, float y){
+        if(x > 0){
+            this.x += 1.5f;
+        }
+        if(x < 0){
+            this.x -= 1.5f;
+        }
+        if(y > 0){
+            this.y += 1.5f;
+        }
+        if(y < 0){
+            this.y -= 1.5f;
+        } else {
+            this.x = (int) x;
+            this.y = (int) y;
         }
     }
 
     public void draw(Canvas canvas){
         canvas.drawBitmap(image, x, y, null);
-
-        if(x < 0){
-
-        }
     }
-
-
 }
