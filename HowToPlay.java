@@ -7,7 +7,7 @@
 package com.example.pockethockey;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,12 +39,9 @@ public class HowToPlay extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Game.setIsGameOverToFalse();
-
-                Intent intent = new Intent(getApplicationContext(), Game.class);
+                Intent intent = new Intent(getApplicationContext(), Splash.class);
                 startActivity(intent);
             }
         });
-
     }
 }

@@ -36,9 +36,7 @@ public class HighscoreActivity extends AppCompatActivity {
     }
 
     public void startNewGame(View v){
-        Game.setIsGameOverToFalse();
-
-        Intent act = new Intent(HighscoreActivity.this, Game.class);
+        Intent act = new Intent(HighscoreActivity.this, Splash.class);
         startActivity(act);
     }
 }

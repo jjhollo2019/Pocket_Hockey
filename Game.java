@@ -3,25 +3,17 @@ package com.example.pockethockey;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
-public class Game extends AppCompatActivity implements GameOver.OpenSelectedListener, SensorEventListener {
+public class Game extends AppCompatActivity implements GameOver.OpenSelectedListener {
     private int strikes = 0;     // 3 strikes means GAME OVER
     private static int level = 1;     // Start at Level 1
     private static int highestLevel = 1;     // Start at Level 1, don't ever decrement
     private static boolean isGameOver;
     private static boolean highScoreSet;
     private HighScoreDatabase database;
-
-    // Accelerometer data
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
 
     // Jeremy's variables
     private GamePanel gameView;
@@ -48,48 +40,6 @@ public class Game extends AppCompatActivity implements GameOver.OpenSelectedList
         level = fromSplash.getIntExtra("level", 1);
         strikes = fromSplash.getIntExtra("strikes", 0);
         highestLevel = fromSplash.getIntExtra("highestLevel", 1);
-
-        // TODO: Investigate NullPointerException
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-    }
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        if (isGameOver) onGameEnd();
-    }
-
-    // For the accelerometer readings
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    // For the accelerometer readings
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mSensorManager.unregisterListener(this, mAccelerometer);
-    }
-
-    /**
-     *
-     * @param sensorEvent containing accelerometer values
-     */
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        /*
-         * To display accelerometer values:
-         * X = sensorEvent.values[0]
-         * Y = sensorEvent.values[1] -- this is primarily what we're concerned with
-         * Z = sensorEvent.values[2]
-         */
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i){
     }
 
     /**

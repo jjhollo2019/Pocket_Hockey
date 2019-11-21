@@ -4,8 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import static android.content.ContentValues.TAG;
 
 public class HighScoreEntry {
@@ -17,11 +18,13 @@ public class HighScoreEntry {
     public void fetchData(Context context, int r) {
         rank = r;
         String filename = "highscore" + r + ".txt";
+        // Open correct file to read from
+        File directory = new File(context.getFilesDir(), "highscores");
+        File inFile = new File(directory, filename);
 
         // Check if file exists
         try{
-            FileInputStream inputStream = context.openFileInput(filename);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader reader = new BufferedReader(new FileReader(inFile));
             // First, read initials
             playerInitials = reader.readLine();
             // Second, read actual score
@@ -45,7 +48,7 @@ public class HighScoreEntry {
                     Log.e(TAG, "HighScoreEntry: Out of bounds rank (not 1 - 3)");
             }
         }
-        catch(Exception e){
+        catch(IOException e){
             // If it doesn't, initialize fields to defaults
             switch(r){
                 case 1:

@@ -1,6 +1,8 @@
 package com.example.pockethockey;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
         newGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Game.setIsGameOverToFalse();
-
-                Intent intent = new Intent(getApplicationContext(), Game.class);
+                Intent intent = new Intent(getApplicationContext(), Splash.class);
                 startActivity(intent);
             }
         });

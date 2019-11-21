@@ -37,7 +37,7 @@ public class ListFragment extends Fragment {
             levelScore.setText(Integer.toString(score.getScore()));
             // Get player initials
             TextView playerName = layoutItem.findViewById(R.id.nameEntry);
-            playerName.setText(score.getPlayerInitials());
+            playerName.setText(score.getPlayerInitials().toUpperCase());
 
             // Add entry to list fragment
             layout.addView(layoutItem);
