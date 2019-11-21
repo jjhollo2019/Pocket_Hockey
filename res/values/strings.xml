@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Pocket Hockey</string>
+    <string name="HowToTitle">How To Play</string>
+    <string name="Instruction1">While holding the phone in landscape mode tilt the phone left and right to move the character left and right</string>
+    <string name="Instruction2">To make a wrist shot use your finger to swipe up on the screen</string>
+    <string name="Instruction3">To make a slap shot use your finger to swipe down and then up on the screen</string>
+    <string name="Instruction4">The character will move forward at a rate determined by the level difficulty</string>
+    <string name="Instruction5">These are the zones where a bonus modifier is added to a slap shot</string>
+    <string name="newGame">New Game</string>
+    <string name="goBack">Go Back</string>
+    <string name="leaderboardText">Leaderboard</string>
+    <string name="score">Score</string>
+    <string name="name">ABC</string>
+    <string name="rank">1.</string>
+    <string name="contentDes">Picture of a player on the leaderboard</string>
+    <string name="leader">Leaderboard</string>
+    <string name="level">"Level    "</string>
+    <string name="readyButton">READY</string>
+
+    <!-- For the Game Over dialog box -->
+    <string name="gameOverTitle">Game Over</string>
+    <string name="playAgainDialog">New Game</string>
+    <string name="quitDialog">Quit</string>
+    <string name="leaderboardDialog">Leaderboard</string>
+    <string name="strikeText">"Strikes: "</string>
+
+    <!-- For the New Highscore dialog box -->
+    <string name="winningTitle">Congrats! You got a new high score!</string>
+    <string name="submitInitials">Submit</string>
+    <string name="cancelDialog">Cancel</string>
+    <string name="initials">Initials</string>
+</resources>
