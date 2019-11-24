@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".HowToPlay">
+    android:background="@drawable/background"
+    tools:context=".HowToPlay"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/title"
@@ -14,8 +15,9 @@
         android:layout_marginTop="28dp"
         android:text="@string/HowToTitle"
         android:textAlignment="center"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="30sp"
+        android:fontFamily="@font/chop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +26,9 @@
         android:id="@+id/instruction1"
         android:layout_width="452dp"
         android:layout_height="48dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="113dp"
         android:text="@string/Instruction1"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -39,7 +40,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="113dp"
         android:text="@string/Instruction2"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction1" />
@@ -47,11 +48,11 @@
     <TextView
         android:id="@+id/instruction3"
         android:layout_width="452dp"
-        android:layout_height="48dp"
+        android:layout_height="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="113dp"
         android:text="@string/Instruction3"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction2" />
@@ -64,7 +65,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="75dp"
         android:contentDescription="@string/goBack"
-        android:tint="@color/colorAccentLight"
+        android:tint="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,7 +80,7 @@
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/colorAccentLight"
         android:text="@string/newGame"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +92,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="113dp"
         android:text="@string/Instruction4"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction3" />
@@ -99,11 +100,11 @@
     <TextView
         android:id="@+id/instruction5"
         android:layout_width="452dp"
-        android:layout_height="48dp"
+        android:layout_height="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="113dp"
         android:text="@string/Instruction5"
-        android:textColor="@color/colorAccentLight"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction4" />
