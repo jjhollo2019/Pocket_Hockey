@@ -2,12 +2,10 @@ package com.example.pockethockey;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import static android.content.ContentValues.TAG;
 
 public class HighScoreEntry {
     private int rank;
@@ -30,46 +28,12 @@ public class HighScoreEntry {
             // Second, read actual score
             score = Integer.parseInt(reader.readLine());
             // Set a default image for now
-            switch(r){
-                case 1:
-                    // Sabres
-                    image = context.getDrawable(R.drawable.sprite_27);
-                    break;
-                case 2:
-                    // Rangers
-                    image = context.getDrawable(R.drawable.sprite_11);
-                    break;
-                case 3:
-                    // Blackhawks
-                    image = context.getDrawable(R.drawable.sprite_24);
-                    break;
-                default:
-                    // This shouldn't happen
-                    Log.e(TAG, "HighScoreEntry: Out of bounds rank (not 1 - 3)");
-            }
+            image = context.getDrawable(R.drawable.plane_1);
         }
         catch(IOException e){
             // If it doesn't, initialize fields to defaults
-            switch(r){
-                case 1:
-                    // Sabres
-                    image = context.getDrawable(R.drawable.sprite_27);
-                    playerInitials = "BUF";
-                    break;
-                case 2:
-                    // Rangers
-                    image = context.getDrawable(R.drawable.sprite_11);
-                    playerInitials = "NYR";
-                    break;
-                case 3:
-                    // Blackhawks
-                    image = context.getDrawable(R.drawable.sprite_24);
-                    playerInitials = "CHI";
-                    break;
-                default:
-                    // This shouldn't happen
-                    Log.e(TAG, "HighScoreEntry: Out of bounds rank (not 1 - 3)");
-            }
+            image = context.getDrawable(R.drawable.plane_1);
+            playerInitials = "ABC";
             score = 0;
         }
     }
