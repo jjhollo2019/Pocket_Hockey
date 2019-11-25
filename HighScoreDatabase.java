@@ -39,6 +39,7 @@ public class HighScoreDatabase {
     }
 
     /**
+     * @pre 0 < level
      * @param level highest level player reached during game
      * @return true if new level reached should be set as a highscore, false otherwise
      */

@@ -21,6 +21,7 @@ public class HighScoreEntry {
     private String playerInitials;
 
     /**
+     * @pre 1 <= r <= 3
      * @param context current context of the application
      * @param r rank to fetch data for
      * @post sets private data based on internal storage or defaults
