@@ -1,3 +1,10 @@
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+
 package com.example.pockethockey;
 
 import android.content.Context;
@@ -13,6 +20,11 @@ public class HighScoreEntry {
     private int score;
     private String playerInitials;
 
+    /**
+     * @param context current context of the application
+     * @param r rank to fetch data for
+     * @post sets private data based on internal storage or defaults
+     */
     public void fetchData(Context context, int r) {
         rank = r;
         String filename = "highscore" + r + ".txt";
@@ -38,18 +50,34 @@ public class HighScoreEntry {
         }
     }
 
+    /**
+     * @return rank
+     * @post returns rank
+     */
     public int getRank(){
         return rank;
     }
 
+    /**
+     * @return image
+     * @post returns image
+     */
     public Drawable getImage(){
         return image;
     }
 
+    /**
+     * @return score
+     * @post returns score
+     */
     public int getScore(){
         return score;
     }
 
+    /**
+     * @return player initials
+     * @post returns player initials
+     */
     public String getPlayerInitials(){
         return playerInitials;
     }

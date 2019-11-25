@@ -1,3 +1,10 @@
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+
 package com.example.pockethockey;
 
 import android.content.Intent;
@@ -11,6 +18,11 @@ public class Splash extends AppCompatActivity {
     private int level = 1;     // Start at Level 1
     private int highestLevel = 1;
 
+    /**
+     * @param savedInstanceState current state of the application
+     * @post inflates the layout activity
+     * @post sets private data from data received via intent
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -38,6 +50,10 @@ public class Splash extends AppCompatActivity {
         strikeText.setText(s);
     }
 
+    /**
+     * @param v the view (button) to listen to
+     * @post sends level, strikes, and highestLevel in an intent to the game
+     */
     public void onReadyButtonClicked(View v){
         Intent i = new Intent(Splash.this, Game.class);
         i.putExtra("level", level);
