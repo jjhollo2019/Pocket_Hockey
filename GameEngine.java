@@ -111,7 +111,7 @@ public class GameEngine {
             //if the player is on screen
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
-                if(Game.phoneAngle < 4f){
+                if(Game.phoneAngle >= 3f){
                     player.setVelocity(player.getVelocity() + (AppConstants.VELOCITY_WHEN_JUMPED * -1));
                     player.setPlayerY(player.getY() + player.getVelocity());
                 }
