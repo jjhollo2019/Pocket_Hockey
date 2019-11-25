@@ -18,7 +18,7 @@ public class SoundBank {
      * This is the class constructor
      * @param context = the context of the main application
      * @pre context != null
-     * @post
+     * @post class variables are initialized 
      */
     public SoundBank(Context context){
         //set class variables
