@@ -1,3 +1,10 @@
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+
 package com.example.pockethockey;
 
 import android.content.Context;
@@ -10,6 +17,10 @@ import java.util.ArrayList;
 public class HighScoreDatabase {
     private ArrayList<HighScoreEntry> scores;
 
+    /**
+     * @param context current context of the application
+     * @post creates a new database containing values for the 3 highscores
+     */
     public HighScoreDatabase(Context context){
         scores = new ArrayList<>();
 
@@ -19,12 +30,16 @@ public class HighScoreDatabase {
         }
     }
 
+    /**
+     * @return scores
+     * @post returns scores
+     */
     public ArrayList<HighScoreEntry> getHighScores(){
         return scores;
     }
 
     /**
-     *
+     * @pre 0 < level
      * @param level highest level player reached during game
      * @return true if new level reached should be set as a highscore, false otherwise
      */
@@ -39,6 +54,7 @@ public class HighScoreDatabase {
         return updateScores;
     }
 
+    // TODO: Camera API and javadoc
     public void setNewHighScore(Context context, Integer level, String initials){
         for (int i = 0; i < 3; i++){
             scores.get(i).fetchData(context, i + 1);
