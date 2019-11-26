@@ -17,6 +17,12 @@ import android.widget.EditText;
 import androidx.fragment.app.DialogFragment;
 
 public class NewHighscoreDialog extends DialogFragment {
+    /**
+     * @param savedInstanceState current state of the application
+     * @return the newly created dialog box
+     * @post sets outputs for each respective button available
+     * @post sends highscore to the database if user presses "submit"
+     */
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         final LayoutInflater inflater = requireActivity().getLayoutInflater();

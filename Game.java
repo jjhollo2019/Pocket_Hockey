@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 public class Game extends AppCompatActivity implements SensorEventListener {
-    public static int strikes = 0;     // 3 strikes means GAME OVER
-    public static int level = 1;     // Start at Level 1
+    public static int strikes;     // 3 strikes means GAME OVER
+    public static int level;     // Start at Level 1
     private static boolean isGameOver;
     private static boolean highScoreSet;
     private static HighScoreDatabase database;
@@ -50,18 +50,14 @@ public class Game extends AppCompatActivity implements SensorEventListener {
         Intent fromSplash = getIntent();
         level = fromSplash.getIntExtra("level", 1);
         strikes = fromSplash.getIntExtra("strikes", 0);
+        AppConstants.level = level;
+        AppConstants.strikes = strikes;
 
         // TODO: Investigate NullPointerException
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         fragmentManager = getSupportFragmentManager();
     }
-
-//    @Override
-//    protected void onStart(){
-//        super.onStart();
-//        if (isGameOver) onGameEnd();
-//    }
 
     // For the accelerometer readings
     @Override
@@ -95,50 +91,4 @@ public class Game extends AppCompatActivity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int i){
     }
-
-//    // If player scores
-//    public static void onLevelPass(){
-//        // Pass data to the splash screen to display the next level
-//        Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
-//        goToSplash.putExtra("level", level++);
-//        goToSplash.putExtra("strikes", strikes);
-//        AppConstants.gameActivityContext.startActivity(goToSplash);
-//    }
-//
-//    // If player doesn't score (misses shot or doesn't shoot at all)
-//    public static void onLevelFail(){
-//        strikes++;
-//        if (strikes == 3){
-//            onGameEnd();
-//            return;
-//        }
-//
-//        // Send level and strikes to Splash.java
-//        Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
-//        goToSplash.putExtra("level", level);
-//        goToSplash.putExtra("strikes", strikes);
-//        AppConstants.gameActivityContext.startActivity(goToSplash);
-//    }
-//
-//    private static void onGameEnd(){
-//        isGameOver = true;
-//
-//        if (!highScoreSet){
-//            // If the player got a new highscore, open HighScoreEnding
-//            if (database.checkHighScores(AppConstants.gameActivityContext, level)){
-//                // Open the NewHighscoreDialog dialog
-//                NewHighscoreDialog dialog = new NewHighscoreDialog();
-//                // Don't allow players to click outside the dialog box (we don't want it to disappear)
-//                dialog.setCancelable(false);
-//                dialog.show(fragmentManager, "Game Over (New Highscore!)");
-//                highScoreSet = true;
-//                return;
-//            }
-//        }
-//        // In the case of no high score, open the GameOver dialog
-//        GameOver dialog = new GameOver();
-//        // Don't allow players to click outside the dialog box (we don't want it to disappear)
-//        dialog.setCancelable(false);
-//        dialog.show(fragmentManager, "Game Over (No Highscore)");
-//    }
 }

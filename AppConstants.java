@@ -1,4 +1,4 @@
-package com.example.planeshooter;
+package com.example.pockethockey;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

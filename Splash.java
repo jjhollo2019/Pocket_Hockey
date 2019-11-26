@@ -5,18 +5,16 @@
  * Pocket Hockey
  */
 
-package com.example.planeshooter;
+package com.example.pockethockey;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 public class Splash extends AppCompatActivity implements GameOver.OpenSelectedListener{
-
     private int strikes = 0;     // 3 strikes means GAME OVER
     private static int level = 1;     // Start at Level 1
     private static boolean highScoreSet;
@@ -59,10 +57,16 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
 
     }
 
+    /**
+     * @post makes the activity visible to the user
+     */
     @Override
     protected void onStart(){
         super.onStart();
 
+        // This is in case the user presses the back button to reenter a previous game
+        // The game should still end and pop up with a GameOver dialog since any highscore was
+        // already stored.
         if (highScoreSet){
             FragmentManager fragmentManager = getSupportFragmentManager();
             // In the case of no high score, open the GameOver dialog
@@ -75,6 +79,9 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         else if (strikes == 3) onGameEnd();
     }
 
+    /**
+     * @post opens the respective dialog box for the end of game situation
+     */
     private void onGameEnd(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         HighScoreDatabase database = new HighScoreDatabase(getApplicationContext());
@@ -102,6 +109,7 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
     /**
      * @pre 0 < which < 4
      * @param which id of button chosen from GameOver dialog box
+     * @post intents to the respective activity
      */
     @Override
     public void onButtonChosen(int which){
@@ -145,6 +153,10 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         startActivity(i);
     }
 
+    /**
+     * @return ending level
+     * @post returns ending level
+     */
     public static int getEndingLevel(){
         return level;
     }

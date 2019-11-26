@@ -1,4 +1,4 @@
-package com.example.frameworktest;
+package com.example.pockethockey;
 
 import android.graphics.Canvas;
 import android.os.SystemClock;

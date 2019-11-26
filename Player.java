@@ -1,4 +1,4 @@
-package com.example.frameworktest;
+package com.example.pockethockey;
 
 /**
  * This class handles the game logic for the game player

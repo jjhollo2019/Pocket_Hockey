@@ -15,11 +15,22 @@ import androidx.fragment.app.DialogFragment;
 
 public class GameOver extends DialogFragment {
     public interface OpenSelectedListener {
+        /**
+         * @pre 0 < which < 4
+         * @param which id of button chosen from GameOver dialog box
+         * @post intents to the respective activity
+         */
         void onButtonChosen(int which);
     }
 
+    // Sends which button was selected to the hosting activity
     private GameOver.OpenSelectedListener myListener;
 
+    /**
+     * @param savedInstanceState current state of the application
+     * @return the newly created dialog box
+     * @post sets outputs for each respective button available
+     */
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
@@ -47,6 +58,10 @@ public class GameOver extends DialogFragment {
                 .create();
     }
 
+    /**
+     * @param context current context of the application
+     * @post attaches dialog with listener to host activity
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

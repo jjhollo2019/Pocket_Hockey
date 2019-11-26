@@ -1,4 +1,4 @@
-package com.example.frameworktest;
+package com.example.pockethockey;
 
 import java.util.Random;
 
@@ -17,8 +17,7 @@ public class Obstacle {
      * This is the class constructor for the class
      * @param obstacleX = the x coordinate for the obstacle
      * @param topObstacleOffsetY = the offset for the obstacle y value
-     * @pre gameView != null && gameThread != null
-     * @post X and Y values are initialized && random is initialized
+     * @pre
      */
     public Obstacle(int obstacleX, int topObstacleOffsetY){
         this.obstacleX = obstacleX;
@@ -27,60 +26,48 @@ public class Obstacle {
     }
 
     /**
-     * This function will get the obstacleOffsetY
-     * @return topObstacleOffsetY
-     * @pre topObstacleOffset != null
-     * @post the value of topObstacleOffsetY is unchanged
+     *
+     * @return
      */
     public int getTopObstacleOffsetY() {
         return topObstacleOffsetY;
     }
 
     /**
-     * This function will get the obstacleOffsetY
-     * @return topObstacleOffsetY
-     * @pre topObstacleOffset != null
-     * @post the value of topObstacleOffsetY is unchanged
+     *
+     * @return
      */
     public int getObstacleX() {
         return obstacleX;
     }
 
     /**
-     * This function will get the obstacleOffsetY
-     * @return topObstacleOffsetY
-     * @pre topObstacleOffsetY != null
-     * @post the value of topObstacleOffsetY is unchanged
+     *
+     * @return
      */
     public int getObstacleY(){
         return topObstacleOffsetY - AppConstants.getBitmapBank().getObstacleHeight();
     }
 
     /**
-     * This function will get the obstacleOffsetY
-     * @return topObstacleOffsetX
-     * @pre topObstacleOffsetX != null
-     * @post the value of topObstacleOffsetX is unchanged
+     *
+     * @return
      */
     public int getBottomObstacleY(){
         return topObstacleOffsetY + AppConstants.OBSTACLE_GAP;
     }
 
     /**
-     * This function will set the value of topObstacleX
-     * @param obstacleX = the new value for obstacleX
-     * @pre topObstacleX != null
-     * @post this.topObstacleX = obstacleX
+     *
+     * @param obstacleX
      */
     public void setObstacleX(int obstacleX) {
         this.obstacleX = obstacleX;
     }
 
     /**
-     * This function will set the value of topObstacleOffsetY
-     * @param topObstacleOffsetY = the new value for topObstacleOffsetY
-     * @pre topObstacleOffsetY != null
-     * @post this.topObstacleOffsetY = topObstacleOffsetY
+     *
+     * @param topObstacleOffsetY
      */
     public void setTopObstacleOffsetY(int topObstacleOffsetY) {
         this.topObstacleOffsetY = topObstacleOffsetY;
