@@ -60,12 +60,18 @@ public class AppConstants {
         //set class constants
         AppConstants.gravity = 2;
         AppConstants.VELOCITY_WHEN_JUMPED = -30;
-        AppConstants.OBSTACLE_GAP = 600;
-        AppConstants.numberOfObstacles = 6;
+        if(AppConstants.level < 4){
+            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH * 3 / 4;
+            AppConstants.numberOfObstacles = 2;
+            AppConstants.OBSTACLE_GAP = 400;
+        } else {
+            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH / 2;
+            AppConstants.numberOfObstacles = AppConstants.level;
+            AppConstants.OBSTACLE_GAP = 300;
+        }
         AppConstants.obstacleVelocity = 12;
         AppConstants.minObstacleOffsetY = (int) (AppConstants.OBSTACLE_GAP / 2.0);
         AppConstants.maxObstacleOffsetY = AppConstants.SCREEN_HEIGHT - AppConstants.minObstacleOffsetY - AppConstants.OBSTACLE_GAP;
-        AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH * 3 /4;
     }
 
     /**
