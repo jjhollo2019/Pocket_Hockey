@@ -1,4 +1,4 @@
-package com.example.frameworktest;
+package com.example.planeshooter;
 
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -44,7 +44,7 @@ public class GameEngine {
         // 0 = not started
         // 1 = playing
         // 2 == game over
-        gameState = 0;
+        gameState = 1;
 
         //init the obstacle list
         obstacles = new ArrayList<>();
@@ -152,15 +152,20 @@ public class GameEngine {
                 //stop the game
                 gameState = 2;
                 //decrease the score
-                score--;
-                //Game.onLevelFail();
+                Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
+                goToSplash.putExtra("level", AppConstants.level);
+                goToSplash.putExtra("strikes", AppConstants.strikes++);
+                AppConstants.gameActivityContext.startActivity(goToSplash);
             }
             //check if player missed object
             else if(obstacles.get(scoringObstacle).getObstacleX() < player.getX() - AppConstants.getBitmapBank().getObstacleWidth()){
                 //increase score
                 score++;
                 if(score == 10){
-                    //Game.onLevelPass();
+                    Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
+                    goToSplash.putExtra("level", AppConstants.level++);
+                    goToSplash.putExtra("strikes", AppConstants.strikes);
+                    AppConstants.gameActivityContext.startActivity(goToSplash);
                 }
                 //change obstacle
                 scoringObstacle++;

@@ -1,4 +1,4 @@
-package com.example.frameworktest;
+package com.example.planeshooter;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -26,6 +26,8 @@ public class AppConstants {
     static int minObstacleOffsetY;
     static int maxObstacleOffsetY;
     static int distanceBetweenObstacles;
+    static int strikes;
+    static int level;
     //static instance of the main class context
     static Context gameActivityContext;
     //static sound reference
