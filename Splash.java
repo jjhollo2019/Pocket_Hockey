@@ -52,7 +52,6 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         s = getString(R.string.strikeText) + strikes;
         strikeText.setText(s);
 
-        if (strikes == 3) onGameEnd();
     }
 
     @Override
@@ -67,12 +66,17 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
             dialog.setCancelable(false);
             dialog.show(fragmentManager, "Game Over (No Highscore)");
         }
+
+        else if (strikes == 3) onGameEnd();
     }
 
+    // TODO: The GameOver dialog always shows for some reason
     private void onGameEnd(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         HighScoreDatabase database = new HighScoreDatabase(getApplicationContext());
         highScoreSet = true;
+        AppConstants.strikes = 0;
+        AppConstants.level = 1;
 
         // If the player got a new highscore, open HighScoreEnding
         if (database.checkHighScores(getApplicationContext(), level)){
@@ -103,8 +107,9 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
             case -1:
                 // Reset level and strikes
                 i = getIntent();
-                i.putExtra("level", level);
-                i.putExtra("strikes", strikes);
+                i.putExtra("level", 1);
+                i.putExtra("strikes", 0);
+                finish();
                 break;
             // Negative button (Quit)
             case -2:
