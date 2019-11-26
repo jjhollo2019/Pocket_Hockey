@@ -1,7 +1,6 @@
-package com.example.frameworktest;
+package com.example.planeshooter;
 
 import android.content.Context;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -98,29 +97,5 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         setFocusable(true);
         //create game thread
         gameThread = new GameThread(holder);
-    }
-
-    /**
-     * This function handles onTouch events for the games
-     * @param event = the event caught by the function
-     * @return the super for the method
-     * @pre The gameEngine must be running before method can be used
-     * @post The player velocity is set the VELOCITY_WHEN_JUMPED
-     */
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        //play the sound
-        AppConstants.getSoundBank().playSomeNoise();
-        //check for action type
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
-            //AppConstants.getGameEngine().gameState = 1;
-            //if the game isn't over
-            if(AppConstants.getGameEngine().gameState != 2) {
-                //set player velocity to VELOCITY_WHEN_JUMPED
-                AppConstants.getGameEngine().player.setVelocity(AppConstants.VELOCITY_WHEN_JUMPED);
-            }
-        }
-        //return super event
-        return super.onTouchEvent(event);
     }
 }
