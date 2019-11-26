@@ -1,3 +1,10 @@
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+
 package com.example.pockethockey;
 
 import android.app.AlertDialog;
@@ -19,7 +26,7 @@ public class NewHighscoreDialog extends DialogFragment {
         AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
         b.setView(in);
         b.setTitle(R.string.winningTitle);
-        b.setMessage("Your Score: " + Game.getHighestLevel());
+        b.setMessage("Your Score: " + Splash.getEndingLevel());
         b.setPositiveButton(R.string.submitInitials, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked Submit
@@ -36,7 +43,7 @@ public class NewHighscoreDialog extends DialogFragment {
 
                 // Set new high score in database
                 HighScoreDatabase database = new HighScoreDatabase(getContext());
-                database.setNewHighScore(getContext(), Game.getHighestLevel(), initials);
+                database.setNewHighScore(getContext(), Splash.getEndingLevel(), initials);
             }
         });
         b.setNegativeButton(R.string.cancelDialog, new DialogInterface.OnClickListener() {

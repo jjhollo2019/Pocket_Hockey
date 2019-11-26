@@ -1,3 +1,10 @@
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+
 package com.example.pockethockey;
 
 import android.app.AlertDialog;
@@ -11,13 +18,13 @@ public class GameOver extends DialogFragment {
         void onButtonChosen(int which);
     }
 
-    private OpenSelectedListener myListener;
+    private GameOver.OpenSelectedListener myListener;
 
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.gameOverTitle)
-                .setMessage("Your Score: " + Game.getEndingLevel())
+                .setMessage("Your Score: " + Splash.getEndingLevel())
                 .setPositiveButton(R.string.playAgainDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked New Game
