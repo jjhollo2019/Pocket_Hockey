@@ -1,5 +1,6 @@
 package com.example.frameworktest;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -110,8 +111,17 @@ public class GameEngine {
             //if the player is on screen
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
-                player.setVelocity(player.getVelocity() + AppConstants.gravity);
-                player.setPlayerY(player.getY() + player.getVelocity());
+                if(Game.phoneAngle >= 3f){
+                    player.setVelocity(player.getVelocity() + (AppConstants.VELOCITY_WHEN_JUMPED * -1));
+                    player.setPlayerY(player.getY() + player.getVelocity());
+                }
+                else if(Game.phoneAngle < -3f) {
+                    player.setVelocity(player.getVelocity() + AppConstants.VELOCITY_WHEN_JUMPED);
+                    player.setPlayerY(player.getY() + player.getVelocity());
+                } else {
+                    player.setVelocity(player.getVelocity() + 1);
+                    player.setPlayerY(player.getY() + player.getVelocity());
+                }
             }
         }
         //get the current frame
@@ -143,11 +153,15 @@ public class GameEngine {
                 gameState = 2;
                 //decrease the score
                 score--;
+                //Game.onLevelFail();
             }
             //check if player missed object
             else if(obstacles.get(scoringObstacle).getObstacleX() < player.getX() - AppConstants.getBitmapBank().getObstacleWidth()){
                 //increase score
                 score++;
+                if(score == 10){
+                    //Game.onLevelPass();
+                }
                 //change obstacle
                 scoringObstacle++;
                 //reset obstacle if needed
@@ -159,7 +173,7 @@ public class GameEngine {
             for(int i = 0; i < AppConstants.numberOfObstacles; i++){
                 //check if on screen
                 if(obstacles.get(i).getObstacleX() < -AppConstants.getBitmapBank().getObstacleWidth()){
-                    //update postional data
+                    //update positional data
                     obstacles.get(i).setObstacleX(obstacles.get(i).getObstacleX() + AppConstants.numberOfObstacles * AppConstants.distanceBetweenObstacles);
                     int seed = AppConstants.maxObstacleOffsetY - AppConstants.minObstacleOffsetY + 1;
                     if(seed <= 0){
