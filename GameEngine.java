@@ -111,16 +111,17 @@ public class GameEngine {
             //if the player is on screen
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
-                if(Game.phoneAngle >= 3f){
-                    player.setVelocity(player.getVelocity() + (AppConstants.VELOCITY_WHEN_JUMPED * -1));
+                System.out.println(Game.phoneAngle);
+                if(Game.phoneAngle > 9.6f){
+                    player.setVelocity(player.getVelocity() + (-1));
                     player.setPlayerY(player.getY() + player.getVelocity());
                 }
-                else if(Game.phoneAngle < -3f) {
-                    player.setVelocity(player.getVelocity() + AppConstants.VELOCITY_WHEN_JUMPED);
-                    player.setPlayerY(player.getY() + player.getVelocity());
-                } else {
+                else if(Game.phoneAngle < 9.3f) {
                     player.setVelocity(player.getVelocity() + 1);
                     player.setPlayerY(player.getY() + player.getVelocity());
+                } else {
+                    //player.setVelocity(player.getVelocity() + 1);
+                    player.setPlayerY(player.getY());
                 }
             }
         }
@@ -154,7 +155,7 @@ public class GameEngine {
                 //decrease the score
                 Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
                 goToSplash.putExtra("level", AppConstants.level);
-                goToSplash.putExtra("strikes", AppConstants.strikes++);
+                goToSplash.putExtra("strikes", ++AppConstants.strikes);
                 AppConstants.gameActivityContext.startActivity(goToSplash);
             }
             //check if player missed object
@@ -163,7 +164,7 @@ public class GameEngine {
                 score++;
                 if(score == 10){
                     Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
-                    goToSplash.putExtra("level", AppConstants.level++);
+                    goToSplash.putExtra("level", ++AppConstants.level);
                     goToSplash.putExtra("strikes", AppConstants.strikes);
                     AppConstants.gameActivityContext.startActivity(goToSplash);
                 }
