@@ -112,12 +112,12 @@ public class GameEngine {
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
                 System.out.println(Game.phoneAngle);
-                if(Game.phoneAngle > 10f){
-                    player.setVelocity(player.getVelocity() + (AppConstants.VELOCITY_WHEN_JUMPED * -1));
+                if(Game.phoneAngle > 9.6f){
+                    player.setVelocity(player.getVelocity() + (-1));
                     player.setPlayerY(player.getY() + player.getVelocity());
                 }
                 else if(Game.phoneAngle < 9.3f) {
-                    player.setVelocity(player.getVelocity() + AppConstants.VELOCITY_WHEN_JUMPED);
+                    player.setVelocity(player.getVelocity() + 1);
                     player.setPlayerY(player.getY() + player.getVelocity());
                 } else {
                     //player.setVelocity(player.getVelocity() + 1);
