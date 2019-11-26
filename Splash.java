@@ -5,7 +5,7 @@
  * Pocket Hockey
  */
 
-package com.example.pockethockey;
+package com.example.planeshooter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 public class Splash extends AppCompatActivity implements GameOver.OpenSelectedListener{
+
     private int strikes = 0;     // 3 strikes means GAME OVER
     private static int level = 1;     // Start at Level 1
     private static boolean highScoreSet;
+    private SoundBank soundBank;
 
     /**
      * @param savedInstanceState current state of the application
@@ -29,6 +31,9 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        soundBank = new SoundBank(getApplicationContext());
+        if(AppConstants.level > 1) soundBank.playSplash();
 
         // Hide the status bar
         View decorView = getWindow().getDecorView();
@@ -70,7 +75,6 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         else if (strikes == 3) onGameEnd();
     }
 
-    // TODO: The GameOver dialog always shows for some reason
     private void onGameEnd(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         HighScoreDatabase database = new HighScoreDatabase(getApplicationContext());
@@ -125,6 +129,7 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
                 // This shouldn't happen
                 i = new Intent(Splash.this, HowToPlay.class);
         }
+        soundBank.stopSplash();
         startActivity(i);
     }
 
@@ -136,6 +141,7 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         Intent i = new Intent(Splash.this, Game.class);
         i.putExtra("level", level);
         i.putExtra("strikes", strikes);
+        soundBank.stopSplash();
         startActivity(i);
     }
 
