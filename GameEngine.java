@@ -111,7 +111,6 @@ public class GameEngine {
             //if the player is on screen
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
-                System.out.println(Game.phoneAngle);
                 if(Game.phoneAngle > 9.6f){
                     player.setVelocity(player.getVelocity() + (-1));
                     player.setPlayerY(player.getY() + player.getVelocity());
@@ -120,7 +119,6 @@ public class GameEngine {
                     player.setVelocity(player.getVelocity() + 1);
                     player.setPlayerY(player.getY() + player.getVelocity());
                 } else {
-                    //player.setVelocity(player.getVelocity() + 1);
                     player.setPlayerY(player.getY());
                 }
             }
@@ -148,10 +146,12 @@ public class GameEngine {
     public void updateAndDrawObstacles(Canvas canvas){
         //if the game is still being played
         if(gameState == 1){
+            AppConstants.getSoundBank().playPlane();
             //check for collision with obstacles
             if((obstacles.get(scoringObstacle).getObstacleX() < player.getX() + AppConstants.getBitmapBank().getPlayerWidth()) && (obstacles.get(scoringObstacle).getTopObstacleOffsetY() > player.getY() || obstacles.get(scoringObstacle).getBottomObstacleY() < (player.getY() + AppConstants.getBitmapBank().getPlayerHeight()))){
                 //stop the game
                 gameState = 2;
+                AppConstants.getSoundBank().stopPlane();
                 //decrease the score
                 Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
                 goToSplash.putExtra("level", AppConstants.level);
@@ -162,7 +162,8 @@ public class GameEngine {
             else if(obstacles.get(scoringObstacle).getObstacleX() < player.getX() - AppConstants.getBitmapBank().getObstacleWidth()){
                 //increase score
                 score++;
-                if(score == 10){
+                if(score == AppConstants.level){
+                    AppConstants.getSoundBank().stopPlane();
                     Intent goToSplash = new Intent(AppConstants.gameActivityContext, Splash.class);
                     goToSplash.putExtra("level", ++AppConstants.level);
                     goToSplash.putExtra("strikes", AppConstants.strikes);
