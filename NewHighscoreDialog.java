@@ -44,6 +44,10 @@ public class NewHighscoreDialog extends DialogFragment {
                 // Set new high score in database
                 HighScoreDatabase database = new HighScoreDatabase(getContext());
                 database.setNewHighScore(getContext(), Splash.getEndingLevel(), initials);
+
+                // Intent to the leaderboard after storing highscore
+                Intent i = new Intent(getContext(), HighscoreActivity.class);
+                startActivity(i);
             }
         });
         b.setNegativeButton(R.string.cancelDialog, new DialogInterface.OnClickListener() {
