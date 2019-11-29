@@ -55,7 +55,6 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         levelText.setText(s);
         s = getString(R.string.strikeText) + strikes;
         strikeText.setText(s);
-
     }
 
     /**

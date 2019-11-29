@@ -65,7 +65,12 @@ public class HighScoreDatabase {
         return updateScores;
     }
 
-    // TODO: Camera API and javadoc
+    /**
+     * @param context current context of the application
+     * @param level user reached by the end of their game
+     * @param initials entered by the user to be stored with their score
+     * @post stores the top 3 highscores in order {initials\n, level\n, image_file_prefix}
+     */
     public void setNewHighScore(Context context, Integer level, String initials){
         for (int i = 0; i < 3; i++){
             scores.get(i).fetchData(context, i + 1);
@@ -120,7 +125,7 @@ public class HighScoreDatabase {
             // Store score
             writer.append(addNewLine);
             // Store corresponding image file prefix
-            writer.append(imageFileName);
+            writer.append(imageFileName);     // TODO: Check file name stored is accurate
             writer.flush();
             writer.close();
             Log.e("HighScoreDatabase", "File written");
@@ -155,8 +160,10 @@ public class HighScoreDatabase {
         return image;
     }
 
-    private static final int REQUEST_TAKE_PHOTO = 1;
-
+    /**
+     * @param context current context of the application
+     * @post launches camera app to acquire picture of user
+     */
     private void dispatchTakePictureIntent(Context context) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
@@ -177,13 +184,12 @@ public class HighScoreDatabase {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 try{
-                    // TODO: Currently this launches properly but then immediately intents to the leaderboard
-                    ((Activity) context).startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-//                    context.startActivity(takePictureIntent);
-                    Log.e("Camera Launcher", "Successfully launched camera");
+                    // TODO: Currently nothing happens here
+                    ((Activity) context).startActivityForResult(takePictureIntent, 1);
+                    Log.e("Camera Launcher", "Past startActivityForResult()");
                 }
                 catch(Exception e){
-                    Log.e("Camera Launcher", "Failed to launch camera");
+                    Log.e("Camera Launcher", "Failed to launch camera: " + e.getMessage());
                 }
             }
         }
