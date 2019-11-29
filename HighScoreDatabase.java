@@ -7,12 +7,23 @@
 
 package com.example.pockethockey;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
+
+import androidx.core.content.FileProvider;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class HighScoreDatabase {
     private ArrayList<HighScoreEntry> scores;
@@ -96,19 +107,85 @@ public class HighScoreDatabase {
             newRank = 3;
         }
 
+        dispatchTakePictureIntent(context);
+
         try{
             // Write new data to its respective file
             File outFile = new File(directory, "highscore" + newRank + ".txt");
             FileWriter writer = new FileWriter(outFile);
             String addNewLine = initials + "\n";
+            // Store initials
             writer.append(addNewLine);
-            writer.append(level.toString());
+            addNewLine = level.toString() + "\n";
+            // Store score
+            writer.append(addNewLine);
+            // Store corresponding image file prefix
+            writer.append(imageFileName);
             writer.flush();
             writer.close();
             Log.e("HighScoreDatabase", "File written");
         }
         catch(IOException e){
             Log.e("HighScoreDatabase", "Exception: " + e.getMessage());
+        }
+    }
+
+    private String currentPhotoPath;
+    private String imageFileName;
+
+    /**
+     * @param context current context of the application
+     * @return newly created file to store an image in
+     * @post returns a new file with unique date-/time-stamp to store an image in
+     * @throws IOException in the case the file creation fails
+     */
+    private File createImageFile(Context context) throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+        imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private static final int REQUEST_TAKE_PHOTO = 1;
+
+    private void dispatchTakePictureIntent(Context context) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(context.getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile(context);
+            }
+            catch (IOException ex) {
+                // Error occurred while creating the File
+                Log.e("Camera Launcher", "Failed to create image file: " + ex.getMessage());
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(context,
+                        "com.example.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                try{
+                    // TODO: Currently this launches properly but then immediately intents to the leaderboard
+                    ((Activity) context).startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+//                    context.startActivity(takePictureIntent);
+                    Log.e("Camera Launcher", "Successfully launched camera");
+                }
+                catch(Exception e){
+                    Log.e("Camera Launcher", "Failed to launch camera");
+                }
+            }
         }
     }
 }

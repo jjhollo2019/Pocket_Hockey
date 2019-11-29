@@ -9,6 +9,7 @@ package com.example.pockethockey;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,6 +78,11 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         }
 
         else if (strikes == 3) onGameEnd();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e("Splash Activity", "Camera intent finished");
     }
 
     /**
