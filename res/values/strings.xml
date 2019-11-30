@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Pocket Hockey</string>
+    <!-- Menu Items -->
+    <string name="app_name">Flight Training</string>
     <string name="HowToTitle">How To Play</string>
-    <string name="Instruction1">While holding the phone in landscape mode tilt the phone left and right to move the character left and right</string>
-    <string name="Instruction2">To make a wrist shot use your finger to swipe up on the screen</string>
-    <string name="Instruction3">To make a slap shot use your finger to swipe down and then up on the screen</string>
-    <string name="Instruction4">The character will move forward at a rate determined by the level difficulty</string>
-    <string name="Instruction5">These are the zones where a bonus modifier is added to a slap shot</string>
+    <string name="Instruction1">While holding the phone in landscape mode, tilt the phone up and down to move the character up and down.</string>
+    <string name="Instruction2">The character will move forward automatically at a constant speed.</string>
+    <string name="Instruction3">Tap the screen to shoot at enemies that get in your way.</string>
+    <string name="Instruction4">Go for as long as you can without running into other objects.</string>
+    <string name="Instruction5">Good luck!</string>
     <string name="newGame">New Game</string>
     <string name="goBack">Go Back</string>
     <string name="leaderboardText">Leaderboard</string>
