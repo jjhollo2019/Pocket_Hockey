@@ -8,7 +8,12 @@
 package com.example.pockethockey;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Environment;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,6 +24,7 @@ public class HighScoreEntry {
     private Drawable image;
     private int score;
     private String playerInitials;
+    private String imagePrefix;
 
     /**
      * @pre 1 <= r <= 3
@@ -40,8 +46,20 @@ public class HighScoreEntry {
             playerInitials = reader.readLine();
             // Second, read actual score
             score = Integer.parseInt(reader.readLine());
-            // Set a default image for now
-            image = context.getDrawable(R.drawable.plane_1);
+            // Finally, get the image file prefix
+            imagePrefix = reader.readLine();
+
+            // Open image file
+            File imDirectory = new File(Environment.DIRECTORY_PICTURES + "/" + imagePrefix + ".jpg");
+
+            if (imDirectory.exists()){
+                Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(imDirectory));
+                image = new BitmapDrawable(context.getResources(), bitmap);
+            }
+            else{
+                // If there's no image, set to the plane as default
+                image = context.getDrawable(R.drawable.plane_1);
+            }
         }
         catch(IOException e){
             // If it doesn't, initialize fields to defaults
