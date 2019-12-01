@@ -68,14 +68,14 @@ public class AppConstants {
         AppConstants.VELOCITY_WHEN_JUMPED = -30;
         //if the level is less than 4, set for easy mode
         if(AppConstants.level < 4){
-            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH * 3 / 4;
+            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH * 5 / 6;
             AppConstants.numberOfObstacles = 2;
-            AppConstants.OBSTACLE_GAP = 500;
+            AppConstants.OBSTACLE_GAP = 400;
         //else set for hard mode
         } else {
-            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH / 2;
+            AppConstants.distanceBetweenObstacles = AppConstants.SCREEN_WIDTH * 3 / 4;
             AppConstants.numberOfObstacles = AppConstants.level;
-            AppConstants.OBSTACLE_GAP = 400;
+            AppConstants.OBSTACLE_GAP = 300;
         }
         //set remaining variables
         AppConstants.obstacleVelocity = 12;
