@@ -1,6 +1,14 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+package com.example.flight_training;
 
 import android.content.Context;
+import android.view.InputDevice;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -82,6 +90,52 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
         }
+    }
+
+    /**
+     * This function overrides the onKeyDown function to add support for a game pad
+     * Note: This code is from the Android developers page
+     * @param keyCode = the code of the key pressed
+     * @param event = the value of the key pressed
+     * @return the super call to the function
+     * @pre keypad presence is required to use this function && game needs to be running
+     * @post the player velocity is reduced by one
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        boolean handled = false;
+        if ((event.getSource() & InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) {
+            //set player position
+            AppConstants.getGameEngine().player.setVelocity(AppConstants.getGameEngine().player.getVelocity() - 1);
+            AppConstants.getGameEngine().player.setPlayerY(AppConstants.getGameEngine().player.getY() + AppConstants.getGameEngine().player.getVelocity());
+        }
+        if (handled) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * This function overrides the onKeyDown function to add support for a game pad
+     * Note: This code is from the Android developers page
+     * @param keyCode = the code of the key pressed
+     * @param event = the value of the key pressed
+     * @return the super call to the function
+     * @pre keypad presence is required to use this function && game needs to be running
+     * @post the player velocity is increased by one
+     */
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        boolean handled = false;
+        if ((event.getSource() & InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) {
+            //set player position
+            AppConstants.getGameEngine().player.setVelocity(AppConstants.getGameEngine().player.getVelocity() + 1);
+            AppConstants.getGameEngine().player.setPlayerY(AppConstants.getGameEngine().player.getY() + AppConstants.getGameEngine().player.getVelocity());
+        }
+        if (handled) {
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
     /**
