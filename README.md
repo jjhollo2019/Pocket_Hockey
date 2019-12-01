@@ -1,11 +1,25 @@
-# Pocket_Hockey
-CPSC-4150-001 Final Project
+Zach Amend
+C16422178
+zamend@clemson.edu
+Jeremy Holloway
+C20581376
+jjhollo@clemson.edu
 
-This is a mobile application written in Andriod Java. The app will be a hockey shootout game.
+Reference Guide: "Reference Guide.pdf"
 
-This repository is ONLY for SOURCE CODE FILES (.java, .xml, etc.). Please do not upload Gradle files or the entire project here.
+Instructions to Run with Emulator:
+In order to run this application, your device must have Android Studio
+installed. After unzipping the submitted folder, you can then open Android
+Studio and import/open this project from the main menu. Within the IDE, ensure
+that the emulator chosen at the top of your window is for a Pixel 2 running at
+minimum Oreo (API level 26). Finally, press the play buttton at the top of your
+window (next to the emulator description) to launch the emulator and run the
+application. The app itself will automatically open, and your mouse will
+simulate any physical interactions with the phone screen. To play the actual
+gmae with the emulator, it is recommended to use the extended emulator controls
+to manipulate accelerometer values in game.
 
 Credits:
-  Sound: all music from freesound.org and is free for use
-  Visuals: The art assets are from gameart2d.com and is free for use
-
+  Sound: All music from freesound.org, free for personal use.
+  Visuals: The art assets are from gameart2d.com, free for personal use.
+  Font: All non-default fonts from Chequered Ink Ltd., free for personal use.
