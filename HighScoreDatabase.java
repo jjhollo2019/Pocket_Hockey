@@ -14,9 +14,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-
 import androidx.core.content.FileProvider;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -149,11 +147,12 @@ public class HighScoreDatabase {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
+//        File image = File.createTempFile(
+//                imageFileName,  /* prefix */
+//                ".jpg",         /* suffix */
+//                storageDir      /* directory */
+//        );
+        File image = new File(storageDir + "/" + imageFileName + ".jpg");
 
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
@@ -184,7 +183,6 @@ public class HighScoreDatabase {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 try{
-                    // TODO: Currently nothing happens here
                     ((Activity) context).startActivityForResult(takePictureIntent, 1);
                     Log.e("Camera Launcher", "Past startActivityForResult()");
                 }
