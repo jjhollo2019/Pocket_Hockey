@@ -27,6 +27,11 @@ public class Game extends AppCompatActivity implements SensorEventListener {
     // Jeremy's variables
     FrameLayout game;
 
+    /**
+     * @param savedInstanceState current state of the application
+     * @post inflates the activity layout
+     * @post initializes private data for new level
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,14 +64,18 @@ public class Game extends AppCompatActivity implements SensorEventListener {
         fragmentManager = getSupportFragmentManager();
     }
 
-    // For the accelerometer readings
+    /**
+     * @post registers listener for accelerometer readings
+     */
     @Override
     protected void onResume() {
         super.onResume();
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    // For the accelerometer readings
+    /**
+     * @post unregisters listener for accelerometer readings
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -74,8 +83,8 @@ public class Game extends AppCompatActivity implements SensorEventListener {
     }
 
     /**
-     *
      * @param sensorEvent containing accelerometer values
+     * @post stores accelerometer values in private data
      */
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {

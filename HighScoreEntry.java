@@ -13,7 +13,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -24,7 +23,6 @@ public class HighScoreEntry {
     private Drawable image;
     private int score;
     private String playerInitials;
-    private String imagePrefix;
 
     /**
      * @pre 1 <= r <= 3
@@ -47,17 +45,18 @@ public class HighScoreEntry {
             // Second, read actual score
             score = Integer.parseInt(reader.readLine());
             // Finally, get the image file prefix
-            imagePrefix = reader.readLine();
+            String imagePrefix = reader.readLine();
 
             // Open image file
             File imDirectory = new File(Environment.DIRECTORY_PICTURES + "/" + imagePrefix + ".jpg");
 
             if (imDirectory.exists()){
+                // Read the bitmap image if there's one there
                 Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(imDirectory));
                 image = new BitmapDrawable(context.getResources(), bitmap);
             }
             else{
-                // If there's no image, set to the plane as default
+                // If there's no image, set image to the plane as default
                 image = context.getDrawable(R.drawable.plane_1);
             }
         }
