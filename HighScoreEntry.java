@@ -5,7 +5,7 @@
  * Flight Training
  */
 
-package com.example.flight_training;
+package com.example.pockethockey;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,6 +18,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * This class pulls data from the app's internal and external storage for each highscore item and
+ * stores the data in private variables for access by the app's local database.
+ */
 public class HighScoreEntry {
     private int rank;
     private Drawable image;
@@ -50,16 +54,13 @@ public class HighScoreEntry {
             // Open image file
             File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             File imDirectory = new File(storageDir + "/" + imagePrefix + ".jpg");
-            System.out.println("Highscore Reader: File created to read image from");
 
             if (imDirectory.exists()){
-                System.out.println("Highscore Reader: Image file is found to exist");
                 // Read the bitmap image if there's one there
                 Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(imDirectory));
                 image = new BitmapDrawable(context.getResources(), bitmap);
             }
             else{
-                System.out.println("Highscore Reader: Image file doesn't exist");
                 // If there's no image, set image to the plane as default
                 image = context.getDrawable(R.drawable.plane_1);
             }
