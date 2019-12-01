@@ -1,4 +1,10 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+package com.example.flight_training;
 
 /**
  * This class handles the parallax scrolling for the background
@@ -50,16 +56,6 @@ public class Background {
      */
     public void setX(int backgroundImageX) {
         this.backgroundImageX = backgroundImageX;
-    }
-
-    /**
-     * This function sets the value backgroundImageY
-     * @param backgroundImageY = the new value of backgroundImageY
-     * @pre The class constructor must be called first
-     * @post this.backgroundImageY = backgroundImageY
-     */
-    public void setY(int backgroundImageY) {
-        this.backgroundImageY = backgroundImageY;
     }
 
     /**
