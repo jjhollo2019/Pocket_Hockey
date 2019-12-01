@@ -2,10 +2,9 @@
  * Zachary Amend (zamend@clemson.edu, C16422178)
  * CPSC-4150-001
  * 12/2/2019
- * Pocket Hockey
+ * Flight Training
  */
-
-package com.example.pockethockey;
+package com.example.flight_training;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,11 +13,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * This class displays the leaderboard for the user
+ * @pre must be intented to from another class
+ * @post not values are changed by viewing the leaderboard
+ */
 public class HighscoreActivity extends AppCompatActivity {
+
     /**
-     * @param savedInstanceState current state of the application
-     * @post inflates the activity layout
-     * @post inflates the list fragment holding highscores
+     * This function will create the leaderboard and inflate the fragment
+     * @param savedInstanceState = saved information
+     * @pre must be called from another activity
+     * @post leaderboard fragment is displayed for the user
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +36,11 @@ public class HighscoreActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+        //get leaderboard fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.scoreContainer);
 
-        // Create fragment to hold the 3 saved highscores
+        //run transaction
         if (fragment == null) {
             fragment = new ListFragment();
             fragmentManager.beginTransaction()
@@ -43,8 +50,8 @@ public class HighscoreActivity extends AppCompatActivity {
     }
 
     /**
-     * @param v the view (button) to listen to
-     * @post intents to the title screen
+     *
+     * @param v
      */
     public void goBackToHome(View v){
         Intent act = new Intent(HighscoreActivity.this, MainActivity.class);
@@ -52,8 +59,8 @@ public class HighscoreActivity extends AppCompatActivity {
     }
 
     /**
-     * @param v the view (button) to listen to
-     * @post intents to the splash screen
+     *
+     * @param v
      */
     public void startNewGame(View v){
         Intent act = new Intent(HighscoreActivity.this, Splash.class);
