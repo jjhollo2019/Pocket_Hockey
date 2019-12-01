@@ -1,4 +1,10 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+package com.example.flight_training;
 
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -111,14 +117,18 @@ public class GameEngine {
             //if the player is on screen
             if (player.getY() < AppConstants.SCREEN_HEIGHT - AppConstants.getBitmapBank().getPlayerHeight() || player.getVelocity() < 0) {
                 //update positional data
-                if(Game.phoneAngle > 9.6f){
-                    player.setVelocity(player.getVelocity() + (-1));
+                System.out.println(Game.phoneAngle);
+                if(Game.phoneAngle > 9.7f){
+                    //move the player down
+                    player.setVelocity(player.getVelocity() - 1);
                     player.setPlayerY(player.getY() + player.getVelocity());
                 }
-                else if(Game.phoneAngle < 9.3f) {
+                else if(Game.phoneAngle < 9.1f) {
+                    //set player going up
                     player.setVelocity(player.getVelocity() + 1);
                     player.setPlayerY(player.getY() + player.getVelocity());
                 } else {
+                    //else have the player continue forward
                     player.setPlayerY(player.getY());
                 }
             }

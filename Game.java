@@ -1,7 +1,12 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+package com.example.flight_training;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,11 +19,6 @@ import android.widget.FrameLayout;
 public class Game extends AppCompatActivity implements SensorEventListener {
     public static int strikes;     // 3 strikes means GAME OVER
     public static int level;     // Start at Level 1
-    private static boolean isGameOver;
-    private static boolean highScoreSet;
-    private static HighScoreDatabase database;
-    private static FragmentManager fragmentManager;
-
     // Accelerometer data
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -36,32 +36,33 @@ public class Game extends AppCompatActivity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //set full screen options
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+        //set game context
         AppConstants.gameActivityContext = this;
 
+        //init static variables
         AppConstants.initialization(this.getApplicationContext());
 
+        //start the game view
         setContentView(new GameView(this));
+        //set layout style
         game = new FrameLayout(this);
-        database = new HighScoreDatabase(getApplicationContext());
-
-        highScoreSet = false;
-        isGameOver = false;
 
         // Grab strike and level data from Splash.java
         Intent fromSplash = getIntent();
         level = fromSplash.getIntExtra("level", 1);
         strikes = fromSplash.getIntExtra("strikes", 0);
+        //set level and strikes
         AppConstants.level = level;
         AppConstants.strikes = strikes;
 
-        // TODO: Investigate NullPointerException
+        //get the accelerometer
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        fragmentManager = getSupportFragmentManager();
     }
 
     /**
@@ -97,6 +98,10 @@ public class Game extends AppCompatActivity implements SensorEventListener {
         phoneAngle = sensorEvent.values[1];
     }
 
+    /**
+     * @param sensor = sensor to be changed
+     * @param i = changed value
+     */
     @Override
     public void onAccuracyChanged(Sensor sensor, int i){
     }
