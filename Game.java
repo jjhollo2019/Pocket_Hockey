@@ -95,7 +95,7 @@ public class Game extends AppCompatActivity implements SensorEventListener {
          * Y = sensorEvent.values[1] -- this is primarily what we're concerned with
          * Z = sensorEvent.values[2]
          */
-        phoneAngle = sensorEvent.values[1];
+        phoneAngle = sensorEvent.values[0];
     }
 
     /**
