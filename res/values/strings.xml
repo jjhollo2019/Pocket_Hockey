@@ -1,3 +1,11 @@
+<!--
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+ -->
 <resources>
     <!-- Menu Items -->
     <string name="app_name">Flight Training</string>
