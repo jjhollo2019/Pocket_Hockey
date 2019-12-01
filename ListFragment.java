@@ -2,7 +2,7 @@
  * Zachary Amend (zamend@clemson.edu, C16422178)
  * CPSC-4150-001
  * 12/2/2019
- * Pocket Hockey
+ * Flight Training
  */
 
 package com.example.pockethockey;
@@ -17,7 +17,18 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
+/**
+ * This class contains the top 3 highscore items in a list fragment to easily be displayed after
+ * updating.
+ */
 public class ListFragment extends Fragment {
+    /**
+     * @param inflater that inflates the fragment and displays it to the screen
+     * @param container view that contains each item in the fragment
+     * @param savedInstanceState current state of the application
+     * @return a view of the fragment with all of its items to be displayed
+     * @post creates and returns a view of the fragment with all of its items to be displayed
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
