@@ -13,8 +13,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -51,16 +49,16 @@ public class HighScoreEntry {
 
             // Open image file
             File imDirectory = new File(Environment.DIRECTORY_PICTURES + "/" + imagePrefix + ".jpg");
-            Log.e("Highscore Reader", "File created to read image from");
+            System.out.println("Highscore Reader: File created to read image from");
 
             if (imDirectory.exists()){
-                Log.e("Highscore Reader", "Image file is found to exist");
+                System.out.println("Highscore Reader: Image file is found to exist");
                 // Read the bitmap image if there's one there
                 Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(imDirectory));
                 image = new BitmapDrawable(context.getResources(), bitmap);
             }
             else{
-                Log.e("Highscore Reader", "Image file doesn't exist");
+                System.out.println("Highscore Reader: Image file doesn't exist");
                 // If there's no image, set image to the plane as default
                 image = context.getDrawable(R.drawable.plane_1);
             }
