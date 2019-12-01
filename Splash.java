@@ -2,19 +2,22 @@
  * Zachary Amend (zamend@clemson.edu, C16422178)
  * CPSC-4150-001
  * 12/2/2019
- * Pocket Hockey
+ * Flight Training
  */
 
 package com.example.pockethockey;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+/**
+ * This class is used in between each level during gameplay. It also serves as the base activity
+ * for when the camera is called upon the reaching of a new highscore.
+ */
 public class Splash extends AppCompatActivity implements GameOver.OpenSelectedListener{
     private int strikes = 0;     // 3 strikes means GAME OVER
     private static int level = 1;     // Start at Level 1
