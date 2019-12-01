@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+ -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/titlepage"
+    android:background="@drawable/background_menu"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginTop="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/chop"
-        android:text="@string/app_name"
+        android:text="Plane Shooter"
         android:textAlignment="center"
-        android:textColor="@color/colorAccentLight"
-        android:textSize="36sp"
+        android:textColor="@color/black"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,13 +33,11 @@
         android:id="@+id/newGameTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/chop"
         android:text="@string/newGame"
-        android:textColor="@color/colorAccentLight"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/black"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -41,12 +47,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="182dp"
-        android:layout_marginEnd="161dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="36dp"
         android:fontFamily="@font/chop"
         android:text="@string/HowToTitle"
-        android:textColor="@color/colorAccentLight"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -55,13 +61,13 @@
         android:id="@+id/leaderTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="131dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="182dp"
         android:layout_marginBottom="36dp"
         android:fontFamily="@font/chop"
         android:text="@string/leader"
-        android:textColor="@color/colorAccentLight"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
