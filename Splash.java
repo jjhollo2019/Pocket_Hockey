@@ -79,9 +79,16 @@ public class Splash extends AppCompatActivity implements GameOver.OpenSelectedLi
         else if (strikes == 3) onGameEnd();
     }
 
+    /**
+     * @param requestCode sent to the original intent
+     * @param resultCode received upon returning of the intent
+     * @param data thumbnail of the image captured
+     * @post intents to the leaderboard
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e("Splash Activity", "Camera intent finished");
+        Intent i = new Intent(Splash.this, HighscoreActivity.class);
+        startActivity(i);
     }
 
     /**
