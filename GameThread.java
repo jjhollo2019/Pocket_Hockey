@@ -1,19 +1,25 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Flight Training
+ */
+package com.example.flight_training;
 
 import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
 
 /**
- * This class runs the game logic on a seperate thread from the main activity
+ * This class runs the game logic on a separate thread from the main activity
  * @pre This class must extend the Thread class to create a thread
  * @post The game is running inside the class thread
  */
 public class GameThread extends Thread {
 
     //class variables
-    SurfaceHolder surfaceHolder;
-    boolean isRunning;
+    private SurfaceHolder surfaceHolder;
+    private boolean isRunning;
     long startTime, loopTime;
     final long DELAY = 33;
 
