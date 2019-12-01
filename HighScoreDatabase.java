@@ -2,10 +2,10 @@
  * Zachary Amend (zamend@clemson.edu, C16422178)
  * CPSC-4150-001
  * 12/2/2019
- * Pocket Hockey
+ * Flight School
  */
 
-package com.example.pockethockey;
+package com.example.flight_training;
 
 import android.app.Activity;
 import android.content.Context;
