@@ -23,6 +23,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * This class serves as an interface between the rest of the application and the data stored for
+ * highscores.
+ */
 public class HighScoreDatabase {
     private ArrayList<HighScoreEntry> scores;
 
@@ -123,7 +127,7 @@ public class HighScoreDatabase {
             // Store score
             writer.append(addNewLine);
             // Store corresponding image file prefix
-            writer.append(imageFileName);     // TODO: Check file name stored is accurate
+            writer.append(imageFileName);
             writer.flush();
             writer.close();
             Log.e("HighScoreDatabase", "File written");
@@ -147,11 +151,6 @@ public class HighScoreDatabase {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-//        File image = File.createTempFile(
-//                imageFileName,  /* prefix */
-//                ".jpg",         /* suffix */
-//                storageDir      /* directory */
-//        );
         File image = new File(storageDir + "/" + imageFileName + ".jpg");
 
         // Save a file: path for use with ACTION_VIEW intents

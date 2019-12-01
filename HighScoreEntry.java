@@ -48,7 +48,8 @@ public class HighScoreEntry {
             String imagePrefix = reader.readLine();
 
             // Open image file
-            File imDirectory = new File(Environment.DIRECTORY_PICTURES + "/" + imagePrefix + ".jpg");
+            File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            File imDirectory = new File(storageDir + "/" + imagePrefix + ".jpg");
             System.out.println("Highscore Reader: File created to read image from");
 
             if (imDirectory.exists()){
