@@ -1,4 +1,10 @@
-package com.example.pockethockey;
+/* Jeremy Holloway (jjhollo@clemson.edu, C20581376)
+ * Zachary Amend (zamend@clemson.edu, C16422178)
+ * CPSC-4150-001
+ * 12/2/2019
+ * Pocket Hockey
+ */
+package com.example.flight_training;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -31,9 +37,9 @@ public class SoundBank {
     }
 
     /**
-     * This function will play a sound
-     * @pre someNoise != null
-     * @post someNoise will play
+     * This function will play planeSound
+     * @pre planeSound != null
+     * @post planeSound will play
      */
     public void playPlane(){
         if(!planeSound.isPlaying()){
@@ -41,30 +47,44 @@ public class SoundBank {
         }
     }
 
+    /**
+     * This function will stop planeSound
+     * @pre planeSound != null
+     * @post planeSound will stop
+     */
     public void stopPlane(){
         if(planeSound.isPlaying()){
             planeSound.stop();
         }
     }
 
+    /**
+     * This function will play theme
+     * @pre theme != null
+     * @post theme will play
+     */
     public void playTheme(){
         if(!theme.isPlaying()){
             theme.start();
         }
     }
 
-    public void stoptheme(){
-        if(theme.isPlaying()){
-            theme.stop();
-        }
-    }
-
+    /**
+     * This function will play splashMusic
+     * @pre splashMusic != null
+     * @post splashMusic will play
+     */
     public void playSplash(){
         if(!splashMusic.isPlaying()){
             splashMusic.start();
         }
     }
 
+    /**
+     * This function will stop splashMusic
+     * @pre splashMusic != null
+     * @post splashMusic will stop
+     */
     public void stopSplash(){
         if(splashMusic.isPlaying()){
             splashMusic.stop();
