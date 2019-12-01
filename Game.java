@@ -16,6 +16,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
+/**
+ * This class handles hardware responses while the game is running in the content view
+ * @pre This class must be called to start the game
+ * @post The game will be running on the screen
+ */
 public class Game extends AppCompatActivity implements SensorEventListener {
     public static int strikes;     // 3 strikes means GAME OVER
     public static int level;     // Start at Level 1
